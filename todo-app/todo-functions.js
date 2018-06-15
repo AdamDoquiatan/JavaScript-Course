@@ -1,21 +1,16 @@
 // Fetches existing todos from local storage
-const getSavedTodos = function () {
+const getSavedTodos = () => {
     const tasksJSON = localStorage.getItem('todos')
-
-    if(tasksJSON != null) {
-        return JSON.parse(tasksJSON)
-    } else{
-        return []
-    }
+    return tasksJSON ? JSON.parse(tasksJSON) : []
 }
 
 // Save todos to local storage
-const saveTodos = function (list) {
+const saveTodos = (list) => {
     localStorage.setItem('todos', JSON.stringify(list))
 }
 
 // Render application todos based on filters
-const renderTodos = function (list, filter) {
+const renderTodos = (list, filter) => {
     document.body.querySelector('#container').innerHTML = ""
 
     list.forEach( function (item) {
@@ -30,23 +25,21 @@ const renderTodos = function (list, filter) {
 }
 
 // Toggles todo to complete or not complete
-const toggleTodo = function (item, itemCheckbox) {
+const toggleTodo = (item, itemCheckbox) => {
     item.complete = itemCheckbox.checked
 }
 
 // Removes a todo
-const removeTodo = function (id) {
-    const todoIndex = todos.findIndex(function (item) {
-        return item.id === id
-    })
+const removeTodo = (id) => {
+    const todoIndex = todos.findIndex((item) => item.id === id)
 
-    if (todoIndex > 0) {
+    if (todoIndex >= 0) {
         todos.splice(todoIndex, 1)
     }
 }
 
 // Get the DOM elements from an individual todo
-const generateTodoDOM = function (item) {
+const generateTodoDOM = (item) => {
 
     // Generate elements
     const itemDiv = document.createElement('div')
@@ -58,7 +51,7 @@ const generateTodoDOM = function (item) {
     itemCheckbox.setAttribute('type','checkbox')
     itemCheckbox.checked = item.complete
     itemDiv.appendChild(itemCheckbox)
-    itemCheckbox.addEventListener('change', function () {
+    itemCheckbox.addEventListener('change', () => {
         toggleTodo(item, itemCheckbox)
         saveTodos(todos)
         renderTodos(todos, filter)
@@ -72,7 +65,7 @@ const generateTodoDOM = function (item) {
     // Set up itemDelete
     itemDelete.textContent = 'Delete'
     itemDiv.appendChild(itemDelete)
-    itemDelete.addEventListener('click', function () {
+    itemDelete.addEventListener('click', () => {
         removeTodo(item.id)
         saveTodos(todos)
         renderTodos(todos, filter)
@@ -83,14 +76,12 @@ const generateTodoDOM = function (item) {
 }
 
 //Get the DOM elements for a list summery
-const generateSummeryDOM = function (list) {
+const generateSummeryDOM = (list) => {
 
     document.querySelector('#tally').innerHTML = ""
 
     // Filters by not complete
-    const tallyNotDone = list.filter( function (item) {
-        return !item.complete
-    })
+    const tallyNotDone = list.filter((item) => !item.complete)
 
     // Prints tally text
     let tasksLeft = document.createElement('h2')
