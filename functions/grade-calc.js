@@ -2,7 +2,10 @@
 // 15/20 --> You got a C (75%)!
 
 const calculateGrade = function (score, maxScore) {
-    
+    if (typeof score !== 'number' || typeof maxScore !== 'number') {
+        throw Error('Please provide number only!')
+    }
+
     const percent = score / maxScore * 100
     let letter;
 
@@ -21,4 +24,10 @@ const calculateGrade = function (score, maxScore) {
     return `You got a(n) ${letter} (${percent}%)!`
 }
 
-console.log(calculateGrade(99, 100))
+try {
+    const result = calculateGrade('true', 20)
+    console.log(result)
+} catch (e) {
+    console.log(e.message)
+}
+

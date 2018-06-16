@@ -1,3 +1,5 @@
+'use strict'
+
 let noteTitle = document.querySelector('#note-title')
 let noteBody = document.querySelector('#note-body')
 const noteId = location.hash.substring(1)

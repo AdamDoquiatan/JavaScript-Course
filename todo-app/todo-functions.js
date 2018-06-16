@@ -1,7 +1,12 @@
 // Fetches existing todos from local storage
 const getSavedTodos = () => {
     const tasksJSON = localStorage.getItem('todos')
-    return tasksJSON ? JSON.parse(tasksJSON) : []
+
+    try {
+        return tasksJSON ? JSON.parse(tasksJSON) : []
+    } catch (e) {
+        return []
+    }
 }
 
 // Save todos to local storage
