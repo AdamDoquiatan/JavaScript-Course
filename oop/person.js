@@ -13,7 +13,6 @@ Person.prototype.getBio = function () {
     this.likes.forEach((like) => {
         bio += ` ${this.firstName} likes ${like}.`
     })
-
     return bio
 }
 
