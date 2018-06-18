@@ -2,6 +2,7 @@ const Hangman = function (word, remainingGuesses) {
     this.word = word.toLowerCase().split('')
     this.remainingGuesses = remainingGuesses
     this.guessedLetters = []
+    this.status = 'playing'
 }
 
 Hangman.prototype.getPuzzle = function () {
@@ -14,7 +15,7 @@ Hangman.prototype.getPuzzle = function () {
         this.guessedLetters.includes(letter) ? puzzle += letter : puzzle += '*'
         }
     })
-    return puzzle
+    document.body.querySelector("#puzzle").textContent = puzzle
 }
 
 Hangman.prototype.makeGuess = function (guess) {
@@ -34,20 +35,31 @@ Hangman.prototype.makeGuess = function (guess) {
     }
 
     this.guessedLetters.push(guess)
+    console.log(this.getStatus())
 }
 
 Hangman.prototype.getRemainingGuesses = function () {
-    return 'Guesses Remaining: ' + this.remainingGuesses
+    document.body.querySelector("#guesses").textContent = 'Guesses Remaining: ' + this.remainingGuesses
 }
 
-const game1 = new Hangman ('Cat', 2)
+Hangman.prototype.getStatus = function () {
 
-console.log(game1.getPuzzle())
-console.log(game1.getRemainingGuesses())
+    let finished = true
+    this.word.forEach((letter) => {
+        if (this.guessedLetters.includes(letter)) {
 
-window.addEventListener('keypress', function (e) {
-    const guess = String.fromCharCode(e.charCode)
-    game1.makeGuess(guess)
-    console.log(game1.getPuzzle())
-    console.log(game1.getRemainingGuesses())
-})
+        } else {
+            finished = false
+        }
+    })
+
+    if (this.remainingGuesses === 0) {
+        this.status = 'failed'
+    } else if (finished) {
+        this.status = 'finished'
+    } else {
+        this.status = 'playing'
+    }
+
+    return this.status
+}
