@@ -1,52 +1,60 @@
-const Hangman = function (word, remainingGuesses) {
+class Hangman {
+    constructor(word, remainingGuesses) {
     this.word = word.toLowerCase().split('')
     this.remainingGuesses = remainingGuesses
     this.guessedLetters = []
     this.status = 'playing'
-}
+    }
+    get puzzle() {
+        let puzzle = ''
 
-Hangman.prototype.getPuzzle = function () {
-    let puzzle = ''
+        this.word.forEach((letter) => {
+            if (letter === ' ') {
+                puzzle += ' '
+            } else {
+            this.guessedLetters.includes(letter) ? puzzle += letter : puzzle += '*'
+            }
+        })
+        document.body.querySelector("#puzzle").textContent = puzzle
+    }
 
-    this.word.forEach((letter) => {
-        if (letter === ' ') {
-            puzzle += ' '
+    get statusMessage() {
+        const message = document.body.querySelector("#message")
+    
+        if (this.status === 'failed') {
+            message.textContent = `You failed, yo! FYI, the word was "${this.word.join('')}".`
+        } else if (this.status === 'finished') {
+            message.textContent = 'You the winner!'
         } else {
-        this.guessedLetters.includes(letter) ? puzzle += letter : puzzle += '*'
+            message.textContent = `Guesses Remaining: ${this.remainingGuesses}`
         }
-    })
-    document.body.querySelector("#puzzle").textContent = puzzle
-}
-
-Hangman.prototype.makeGuess = function (guess) {
-    if (typeof guess != 'string' || guess.length != 1) {
-        throw Error('Invalid input!')
+        return message.textContent
     }
+    makeGuess(guess) {
+        if (this.status === 'playing') {
 
-    guess = guess.toLowerCase()
-
-    if (this.guessedLetters.includes(guess)) {
-        return console.log('You already guessed this!')
-    } else if (this.word.includes(guess)) {
-        console.log('Got it!')
-    } else {
-        this.remainingGuesses--
-        console.log('Missed it!')
+            if (typeof guess != 'string' || guess.length != 1) {
+                throw Error('Invalid input!')
+            }
+    
+            guess = guess.toLowerCase()
+    
+            if (this.guessedLetters.includes(guess)) {
+                return console.log('You already guessed this!')
+            } else if (this.word.includes(guess)) {
+    
+            } else {
+                this.remainingGuesses--
+            }
+    
+            this.guessedLetters.push(guess)
+            console.log(this.getStatus())
+        }
     }
-
-    this.guessedLetters.push(guess)
-    console.log(this.getStatus())
-}
-
-Hangman.prototype.getRemainingGuesses = function () {
-    document.body.querySelector("#guesses").textContent = 'Guesses Remaining: ' + this.remainingGuesses
-}
-
-Hangman.prototype.getStatus = function () {
-
+    getStatus() {
     let finished = true
     this.word.forEach((letter) => {
-        if (this.guessedLetters.includes(letter)) {
+        if (this.guessedLetters.includes(letter) || letter === ' ') {
 
         } else {
             finished = false
@@ -62,4 +70,6 @@ Hangman.prototype.getStatus = function () {
     }
 
     return this.status
+    }
+
 }
