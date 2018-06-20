@@ -17,23 +17,10 @@ getPuzzle((error, puzzle) => {
     }
 })
 
-// Making an HTTP request
-
-// const countryCode = "CA"
-// const countryReq = new XMLHttpRequest()
-
-// countryReq.addEventListener('readystatechange', (e) => {
-//     if (e.target.readyState === 4 && e.target.status === 200) {
-//         const data = JSON.parse(e.target.responseText)
-//         const country = data.find((obj) => {
-//             return obj.alpha2Code === countryCode
-//         }) 
-//         console.log(country.name)
-//     } else if (e.target.readyState === 4) {
-//         console.log('Something went wrong.')
-//     }
-// })
-
-// countryReq.open('GET', 'http://restcountries.eu/rest/v2/all')
-// countryReq.send()
-
+getCountry("CA", (error, country) => {
+    if (error) {
+        console.log(`Error: ${error}`)
+    } else {
+        console.log(country)
+    }
+})
