@@ -15,7 +15,7 @@ class Hangman {
             this.guessedLetters.includes(letter) ? puzzle += letter : puzzle += '*'
             }
         })
-        document.body.querySelector("#puzzle").textContent = puzzle
+        return puzzle
     }
 
     get statusMessage() {

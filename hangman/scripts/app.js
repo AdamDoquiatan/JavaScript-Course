@@ -1,3 +1,5 @@
+const puzzleEl = document.body.querySelector("#puzzle")
+const guessesEl = document.body.querySelector("#message")
 let game1
 
 window.addEventListener('keypress', (e) => {
@@ -7,8 +9,14 @@ window.addEventListener('keypress', (e) => {
 })
 
 const render = () => {
-    game1.puzzle
-    game1.statusMessage
+    puzzleEl.innerHTML = ''
+    guessesEl.textContent = game1.statusMessage
+
+    game1.puzzle.split('').forEach((letter) => {
+    const letterEl = document.createElement("span")
+    letterEl.textContent = letter
+    puzzleEl.appendChild(letterEl)
+    })
 }
 
 const startGame = async () => {
