@@ -1,9 +1,10 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+
 <html>
     <head>
         <title>To-do App</title>
-        <link rel="icon" href="/images/favicon.png?v=1">
-        <link rel="stylesheet" href="/styles/styles.css">
+        <link href="/styles/styles.css" rel="stylesheet">
+        <link href="/images/favicon.png?v=1" rel="icon">
     </head>
     <body>
         <div class="header">
@@ -15,25 +16,24 @@
 
         <div class="actions">
             <div class="actions__container">
-                <input id="search-field" class="input" placeholder="Task">
+                <input id="search-text" class="input" type="text" placeholder="Filter todos">
                 <label class="checkbox">
-                    <input id="hide-completed" type="checkbox" name="hideComplete"> Hide Complete
+                    <input type="checkbox" id="hide-completed"> Hide completed
                 </label>
             </div>
         </div>
 
         <div class="container">
-            <div id="tally"></div> 
-            <div id="container"></div>
-            <form id="add-todo-form">
-                <input type="text" class="input" name="addField" placeholder="Add a todo!">
-                <button class="button">Submit</button> 
+            <div id="todos"></div>
+            <form id="new-todo">
+                <input type="text" class="input" placeholder="Something to do" name="text">
+                <button class="button">Add Todo</button>
             </form>
         </div>
 
+        
         <script src="/scripts/uuidv4.js"></script>
-        <script src="/scripts/moment.js"></script>
         <script src="/scripts/todo-functions.js"></script>
-        <script src="/scripts/todo.js"></script> 
+        <script src="/scripts/todo-app.js"></script>
     </body>
 </html>
