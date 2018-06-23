@@ -1,22 +1,39 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+        <title>To-do App</title>
+        <link rel="icon" href="/images/favicon.png?v=1">
+        <link rel="stylesheet" href="/styles/styles.css">
     </head>
     <body>
-        <h1>ToDos</h1>
-        <div id="tally"></div> 
-        <input id="search-field" placeholder="Task">
-        <div id="container"></div>
-        <form id="add-todo-form">
-            <input type="text" name="addField" placeholder="Add a todo!">
-            <button>Submit</button> 
-        </form>
-        <label>
-            <input id="hide-completed" type="checkbox" name="hideComplete"> Hide Complete
-        </label>
-        <script src="/uuidv4.js"></script>
-        <script src="/moment.js"></script>
-        <script src="todo-functions.js"></script>
-        <script src="todo.js"></script> 
+        <div class="header">
+            <div class="container">
+                <h1 class="header__title">To-do App</h1>
+                <h2 class="header__subtitle">What do you need to do?</h2>
+            </div>
+        </div>
+
+        <div class="actions">
+            <div class="actions__container">
+                <input id="search-field" class="input" placeholder="Task">
+                <label class="checkbox">
+                    <input id="hide-completed" type="checkbox" name="hideComplete"> Hide Complete
+                </label>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="tally"></div> 
+            <div id="container"></div>
+            <form id="add-todo-form">
+                <input type="text" class="input" name="addField" placeholder="Add a todo!">
+                <button class="button">Submit</button> 
+            </form>
+        </div>
+
+        <script src="/scripts/uuidv4.js"></script>
+        <script src="/scripts/moment.js"></script>
+        <script src="/scripts/todo-functions.js"></script>
+        <script src="/scripts/todo.js"></script> 
     </body>
 </html>
