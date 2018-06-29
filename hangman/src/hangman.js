@@ -46,8 +46,7 @@ class Hangman {
             } else {
                 this.remainingGuesses--
             }
-    
-            this.guessedLetters.push(guess)
+            this.guessedLetters = [...this.guessedLetters, guess]
             console.log(this.getStatus())
         }
     }
