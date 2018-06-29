@@ -1,0 +1,44 @@
+1. Create two book objects each with a title, author, and pageCount property. Then create a function that uses a templete string to print a property from either book to the console
+
+
+2. Create a function that returns an object with 3 properties (your choice). Store the result in a variable. print it to the console.
+
+3. Create a restaurant object with three properties and a method. Call the method printing result to the console.
+
+4. Print a string variable 4 times, each time with calling a different string function.
+
+5. let num = 103.94
+Print functions that:   Specify how many numbers after decimal point
+                        Round the numbers
+                        Returns the ceiling
+                        Returns the floor
+
+6. Print a randomly generated number.
+
+7. Create an array and use 4 different array methods to add and remove items.
+
+8. Create an array and use splice to replace the first item with 2000. Use splice again to remove the 3rd item.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Using Async/Await/Fetch, return data from API http://puzzle.mead.io/puzzle
+
+
+ Set up boilerplate for webpack and babel
