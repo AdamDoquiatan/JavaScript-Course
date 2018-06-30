@@ -1,7 +1,7 @@
 
 //////// Usinge Async/Await/Fetch to return data from an API ///////
 
-// // Get data using Promises
+// Get data using Promises
 const fetch = require('node-fetch');
 
 const getPuzzle = async (wordCount) => {
@@ -15,7 +15,7 @@ const getPuzzle = async (wordCount) => {
     }
 }
 
-// Call from other file (same as before)
+// Can be called from another file.
 getPuzzle('2').then((puzzle) => {
 console.log(puzzle)
 }).catch((err) => {

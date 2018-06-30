@@ -19,26 +19,121 @@ Print functions that:   Specify how many numbers after decimal point
 
 8. Create an array and use splice to replace the first item with 2000. Use splice again to remove the 3rd item.
 
+9. const todos = ['Order cat food', 'Clean kitchen', 'Buy food', 'Do work', 'Exercise']
+Use a forEach loop to print a numbered list of the array.
 
+10. const places = ['Philadelphia', 'Texas', 'Vermont']
+Use a function to return the index of 'Vermont;
 
+11a. const notes = [{
+    title: 'My next trip',
+    body: 'I would like to go to Spain'
+}, {
+    title: 'Habbits to work on',
+    body: 'Exercise. Eating a bit better.'
+}, {
+    title: 'Office modification',
+    body: 'Get a new seat'
+}]
+Use a function to find the index of the object containing the property value 'Habits to work on'.
 
+11b. Use a function to return and print the actual object containing the property value 'my next trip'.
 
+12. const todos = [{
+    text: 'Order cat food',
+    completed: false
+}, {
+    text: 'Clean kitchen',
+    completed: true
+}, {
+    text: 'Do work',
+    completed: false
+}]
+Use function to return and print an array of every object with 'completed' set to false.
 
+13. const todos = [{
+    text: 'Buy food',
+    completed: true
+}, {
+    text: 'Do work',
+    completed: false
+}, {
+    text: 'Exercise',
+    completed: true
+}]
+Use a function to rearrange the todos so that the incomplete ones are at the top.
 
+14. Create a paragraph, give it some content and add it to the DOM.
 
+15. Select a button element, and make it so that when it's clicked it prints something to the console.
 
+16. Set up a text-field with id of search-text so that it prints its contents to the console whenever somone types in it.
 
+17. <form id="new-todo">
+        <input type="text" placeholder="Enter your name" name="firstName">
+        <button>Submit</button>
+    </form>
+Set up this form to submit (aka print to console) the content of its text field when someone hits the submit button. Clear text field. (may not actually work)
 
+18. <label>
+        <input id="delivery" type="checkbox"> Check for delivery
+    </label>
+Set this up to print to console whether the checkbox is checked whenever it's clicked.
 
+19. Functions that save, return, remove, and clears items from local storage.
 
+20. HTML you use to add an API and link your js together. And then, js you use to access and use API once loaded
 
+21. Store the hash (id) of the current page in a variable (remember it comes with a # at the beginning)
 
+22. Set up an event that will fire for local storage changes that come from a different page.
 
+23. Get the type of a value or variable.
 
+24. What strict mode does and how to implement it.
 
+25. Create a class constructor for Person (name, age, etc) using only a regular function constructor, add a new method(prototype) to it that returns the first name and age, and then create new object from it.
 
+26. Do the same as #25, exept use the class syntax.
 
- Using Async/Await/Fetch, return data from API http://puzzle.mead.io/puzzle
+27. Create a Student class that is a subclass of Person with new argument 'grade' and new method 'updateGrade'.
 
+28. Crate a human object with both first and last name properties, and a getter that returns both first and last name as a string.
 
- Set up boilerplate for webpack and babel
+29. On the same human object as 28, create a setter that takes a single string with a first and last name, splits it into it's two parts, and updates the first and last name properties respectively.
+
+30. Use Async/Await/Fetch to return data from an API (http://puzzle.mead.io/puzzle), and display it to the console.
+
+31. File Name: utilities.js
+    const add = (a, b) => a + b
+    const subtract = (a, b) => a - b
+    const square = (x) => x * x
+Export all three, but export the square as the default.
+
+32. Import add and square from 31. Remember that square is a default export.
+
+33. Create an averaging function that takes any number of number arguments, averages them, then prints the result.
+
+34. Create a team function that takes any number of player arguments and prints each player seperated by commas and spaces.
+
+35. const team = {
+    players: ['Marge', 'Aiden', 'Herbert', 'Sherry'] }
+Print every player on the team using only one argument.
+
+36. let house = {
+    bedrooms: 2,
+    bathrooms: 1.5,
+    yearBuilt: 2017
+    }
+Create a clone object of house using only one property. (requires spread syntax installed)
+
+37. const todo = {
+    id: 'asdfpoijwermasdf',
+    text: 'Pay the bills',
+    completed: false
+    }
+Destructure this so that each property is easily globally accessable. Have 'text' renamed 'todoText', add a new property called details with a default value, and add a property that accesses any leftover properties. Let completed just be normal.
+
+38. Use destrucuring to use the properties in 37 as arguments in a function that prints the text and completed status to the console.
+
+39. Set up boilerplate for webpack and babel (good luck kid)
